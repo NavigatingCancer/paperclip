@@ -60,7 +60,7 @@ module Paperclip
     end
 
     def type_from_file_contents
-      type_from_marcel || type_from_file_command
+      type_from_marcel
     rescue Errno::ENOENT => e
       Paperclip.log("Error while determining content type: #{e}")
       SENSIBLE_DEFAULT
