@@ -68,7 +68,7 @@ module Paperclip
 
     def type_from_marcel
       @type_from_marcel ||= File.open(@filepath) do |file|
-        Marcel::Magic.by_magic(file).try(:type)
+        Marcel::MimeType.for file, name: File.basename(@filepath)
       end
     end
 
